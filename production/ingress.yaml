@@ -1,7 +1,6 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
-  namespace: production
   name: canary-app-gateway
   labels:
     app: istio-gateway
@@ -27,7 +26,6 @@ spec:
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  namespace: production
   name: canary-app-virtual-service
   labels:
     app: istio-gateway
