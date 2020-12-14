@@ -6,7 +6,7 @@ metadata:
   namespace: argocd
 spec:
   # The project the application belongs to.
-  project: canary-app
+  project: default
 
   # Source of the application manifests
   source:
