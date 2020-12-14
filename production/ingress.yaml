@@ -3,7 +3,7 @@ kind: Gateway
 metadata:
   name: canary-app-gateway
   labels:
-    app: istio-gateway
+    app: canary-app-gateway
 spec:
   selector:
     istio: ingressgateway # use istio default controller
@@ -28,7 +28,7 @@ kind: VirtualService
 metadata:
   name: canary-app-virtual-service
   labels:
-    app: istio-gateway
+    app: canary-app-virtual-service
 spec:
   hosts:
   - canary-app.team-liran.ml
