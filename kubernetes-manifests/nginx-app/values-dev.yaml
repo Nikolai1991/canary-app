@@ -1,0 +1,8 @@
+# Deployment values
+replicaCount: 1
+name: nginx
+image: nginx
+
+# Service values
+service: 
+  type: LoadBalancer

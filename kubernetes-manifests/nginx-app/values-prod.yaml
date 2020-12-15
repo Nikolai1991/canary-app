@@ -1,0 +1,8 @@
+# Deployment values
+replicaCount: 4
+name: nginx
+image: 744725459063.dkr.ecr.us-east-1.amazonaws.com/github-action-nginx:cc71d8368b1f6ce153894e1569a7b73e01d458af
+
+# Service values
+service: 
+  type: LoadBalancer
