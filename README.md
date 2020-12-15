@@ -38,3 +38,11 @@ kubectl get pods -n argocd -l app.kubernetes.io/name=argocd-server -o name | cut
 kubectl -n app get all # in this case the deployment will be in the app namespace as per the config in kubernetes-manifests/
 
 </code></pre>
+
+2. Check your rollout: 
+
+<pre><code>
+
+kubectl argo rollouts get rollout istio-rollout --watch
+
+</code></pre>
