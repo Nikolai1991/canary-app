@@ -1,11 +1,11 @@
-AppName: Nginx
-CanaryServiceName: Nginx-Canary
-StableServiceName: Nginx-Stable
+AppName: nginx
+CanaryServiceName: nginx-canary
+StableServiceName: nginx-stable
 FirstWeight: 20
 FirstDuration: 1m
 SecondWeight: 50
 SecondDuration: 2m
-VirtualService: Nginx-vs
-RouteName: Nginx-rt
+VirtualService: nginx-vs
+RouteName: nginx-rt
 Replicas: 4
 image: 744725459063.dkr.ecr.us-east-1.amazonaws.com/github-action-nginx:cc71d8368b1f6ce153894e1569a7b73e01d458af
