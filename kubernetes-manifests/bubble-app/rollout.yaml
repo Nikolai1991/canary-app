@@ -52,7 +52,7 @@ spec:
     spec:
       containers:
       - name: istio-rollout
-        image: argoproj/rollouts-demo:bad-green # blue (stable) / orange (new canary version) / bad-green  (broken image)
+        image: argoproj/rollouts-demo:orange # blue (stable) / orange (new canary version) / bad-green  (broken image)
         imagePullPolicy: Always
         ports:
         - name: web
