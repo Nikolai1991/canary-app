@@ -12,7 +12,7 @@ spec:
   source:
     repoURL: https://github.com/Nikolai1991/canary-app.git
     targetRevision: HEAD
-    path: production/bubble-app/
+    path: kubernetes-manifests/bubble-app/
 
   # Destination cluster and namespace to deploy the application
   destination:
