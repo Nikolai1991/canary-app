@@ -10,7 +10,7 @@ spec:
 
   # Source of the application manifests
   source:
-    repoURL: canary-app.git
+    repoURL: https://github.com/Nikolai1991/canary-app.git
     targetRevision: HEAD
     path: kubernetes-manifests/nginx-app/
 
