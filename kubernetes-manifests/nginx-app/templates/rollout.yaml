@@ -10,7 +10,6 @@ spec:
       analysis:
         templates:
         - templateName: success-rate
-        # startingStep: 2
         args:
         - name: service-name
           value: {{ .Values.CanaryServiceName }}.default.svc.cluster.local
@@ -30,7 +29,6 @@ spec:
             routes:
             - {{ .Values.RouteName }}
   replicas: {{ .Values.Replicas }}
-  # revisionHistoryLimit: 2
   selector:
     matchLabels:
       app: {{ .Values.AppName }}
