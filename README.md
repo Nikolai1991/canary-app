@@ -6,13 +6,13 @@ This repo will deploy the ArgoCD components and a definition of your app for Arg
 
 <pre><code>
 
-kubectl apply -f production/
+kubectl apply -f argocd-manifest.yaml
 
 </code></pre>
 
 1. Access UI by Istio GW
 
-Here you will see the magic of ArgoCD by expecting the pipeline that your canary-app.yaml deployment has 
+Here you will see the magic of ArgoCD by expecting the pipeline that your deployment has 
 created. 
 
 - Error inspection
@@ -35,6 +35,6 @@ kubectl get pods -n argocd -l app.kubernetes.io/name=argocd-server -o name | cut
 
 <pre><code>
 
-kubectl -n app get all # in this case the deployment will be in the app namespace as per the config in production/
+kubectl -n app get all # in this case the deployment will be in the app namespace as per the config in kubernetes-manifests/
 
 </code></pre>
