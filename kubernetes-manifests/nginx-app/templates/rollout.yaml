@@ -13,7 +13,7 @@ spec:
         startingStep: 2
         args:
         - name: service-name
-          value: webapp-canary.default.svc.cluster.local
+          value: {{ .Values.CanaryServiceName }}.default.svc.cluster.local
       steps:
       - setWeight: {{ .Values.FirstWeight }}
       - pause:
