@@ -1,20 +1,45 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
 metadata:
+  name: {{ .Values.AppName }}
   labels:
-    app: {{ .Values.name }}
-  name: {{ .Values.name }}
+    app: {{ .Values.AppName }}
 spec:
-  replicas: {{ .Values.replicaCount }}
+  strategy:
+    canary:
+      analysis:
+        templates:
+        - templateName: success-rate
+        # startingStep: 2
+        args:
+        - name: service-name
+          value: {{ .Values.CanaryServiceName }}.default.svc.cluster.local
+      steps:
+      - setWeight: {{ .Values.FirstWeight }}
+      - pause:
+          duration: {{ .Values.FirstDuration }}
+      - setWeight: {{ .Values.SecondWeight }}
+      - pause:
+          duration: {{ .Values.SecondDuration }}
+      canaryService: {{ .Values.CanaryServiceName }} 
+      stableService: {{ .Values.StableServiceName }}
+      trafficRouting:
+        istio:
+           virtualService: 
+            name: {{ .Values.VirtualService }}
+            routes:
+            - {{ .Values.RouteName }}
+  replicas: {{ .Values.Replicas }}
+  # revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: {{ .Values.name }}
+      app: {{ .Values.AppName }}
   template:
     metadata:
       labels:
-        app: {{ .Values.name }}
+        app: {{ .Values.AppName }}
     spec:
       containers:
-      - image: {{ .Values.image }}
-        name: {{ .Values.name }}
-
+      - name: {{ .Values.AppName }}
+        image: {{ .Values.image }}
+        imagePullPolicy: Always
