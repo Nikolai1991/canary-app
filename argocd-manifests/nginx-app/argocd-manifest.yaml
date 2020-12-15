@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nginx-app
+  name: webapp
   # You'll usually want to add your resources to the argocd namespace.
   namespace: argocd
 spec:
@@ -16,7 +16,7 @@ spec:
 
     # helm specific config
     helm:
-      releaseName: nginx-app
+      releaseName: webapp
 
       valueFiles:
       - values-prod.yaml
