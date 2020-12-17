@@ -2,6 +2,15 @@ Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes.
 
 This repo will deploy the ArgoCD components and a definition of your app for ArgoCD to watch and sync.
 
+- Tag namespaces with istio-injection=enabled lable:
+
+<pre><code>
+
+kubectl label namespace NAMESPACE istio-injection=enabled
+
+</code></pre>
+
+
 - Deploy: 
 
 <pre><code>

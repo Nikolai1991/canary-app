@@ -2,6 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
   name: {{ .Values.AppName }}
+  namespace: {{ .Values.Namespace }}
   labels:
     app: {{ .Values.AppName }}
 spec:
@@ -13,7 +14,7 @@ spec:
         startingStep: 2 # delay starting analysis run until setWeight: 40%
         args:
         - name: service-name
-          value: {{ .Values.CanaryServiceName }}.default.svc.cluster.local
+          value: {{ .Values.CanaryServiceName }}.dev.svc.cluster.local
       steps:
       - setWeight: {{ .Values.FirstWeight }}
       - pause:

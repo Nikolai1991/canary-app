@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: webapp
+  name: dev-webapp
   # You'll usually want to add your resources to the argocd namespace.
   namespace: argocd
 spec:
@@ -16,15 +16,15 @@ spec:
 
     # helm specific config
     helm:
-      releaseName: webapp
+      releaseName: dev-webapp
 
       valueFiles:
-      - values-prod.yaml
+      - values-dev.yaml
 
   # Destination cluster and namespace to deploy the application
   destination:
     server: https://kubernetes.default.svc
-    namespace: default  
+    namespace: dev  
 
   # Sync policy
   syncPolicy:
