@@ -10,5 +10,5 @@ VirtualService: webapp-vs
 RouteName: webapp-rt
 Replicas: 4
 image: 744725459063.dkr.ecr.us-east-1.amazonaws.com/github-action-nginx:f49c94b
-DomainName: webapp.team-liran.ml
+DomainName: prod-webapp.team-liran.ml
 GatewayName: webapp-gateway

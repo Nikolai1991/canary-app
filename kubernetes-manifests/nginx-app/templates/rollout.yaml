@@ -14,7 +14,7 @@ spec:
         startingStep: 2 # delay starting analysis run until setWeight: 40%
         args:
         - name: service-name
-          value: {{ .Values.CanaryServiceName }}.dev.svc.cluster.local
+          value: {{ .Values.CanaryServiceName }}.{{ .Values.Namespace }}.svc.cluster.local
       steps:
       - setWeight: {{ .Values.FirstWeight }}
       - pause:
