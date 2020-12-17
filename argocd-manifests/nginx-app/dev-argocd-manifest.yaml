@@ -19,12 +19,12 @@ spec:
       releaseName: webapp
 
       valueFiles:
-      - values-prod.yaml
+      - values-dev.yaml
 
   # Destination cluster and namespace to deploy the application
   destination:
     server: https://kubernetes.default.svc
-    namespace: default  
+    namespace: dev  
 
   # Sync policy
   syncPolicy:

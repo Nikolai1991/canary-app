@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: webapp
+  # You'll usually want to add your resources to the argocd namespace.
+  namespace: argocd
+spec:
+  # The project the application belongs to.
+  project: default
+
+  # Source of the application manifests
+  source:
+    repoURL: https://github.com/Nikolai1991/canary-app.git
+    targetRevision: HEAD
+    path: kubernetes-manifests/nginx-app/
+
+    # helm specific config
+    helm:
+      releaseName: webapp
+
+      valueFiles:
+      - values-prod.yaml
+
+  # Destination cluster and namespace to deploy the application
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: prod  

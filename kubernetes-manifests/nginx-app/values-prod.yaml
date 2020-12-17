@@ -1,4 +1,5 @@
 AppName: webapp
+Namespace: prod
 CanaryServiceName: webapp-canary
 StableServiceName: webapp-stable
 FirstWeight: 20

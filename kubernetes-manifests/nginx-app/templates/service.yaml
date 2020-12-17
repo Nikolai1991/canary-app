@@ -1,6 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
+  namespace: {{ .Values.Namespace }}
   labels:
     app: {{ .Values.CanaryServiceName }}
   name: {{ .Values.CanaryServiceName }}
@@ -15,6 +16,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
+  namespace: {{ .Values.Namespace }}
   labels:
     app: {{ .Values.StableServiceName }}
   name: {{ .Values.StableServiceName }}

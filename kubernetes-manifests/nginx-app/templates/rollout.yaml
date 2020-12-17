@@ -36,6 +36,7 @@ spec:
       app: {{ .Values.AppName }}
   template:
     metadata:
+      namespace: {{ .Values.Namespace }}
       labels:
         app: {{ .Values.AppName }}
     spec:
