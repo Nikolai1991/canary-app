@@ -7,10 +7,6 @@ metadata:
 spec:
   hosts:
   - {{ .Values.DomainName }}
-  http:
-  - match:
-    - uri:
-        prefix: "/socket.io"
   gateways:
   - {{ .Values.GatewayName }}
   http:
