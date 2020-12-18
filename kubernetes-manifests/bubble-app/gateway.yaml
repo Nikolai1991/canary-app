@@ -1,9 +1,9 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
-  name: istio-rollout-gateway
+  name: bubble-app-gateway
   labels:
-    app: istio-rollout
+    app: bubble-app
 spec:
   selector:
     istio: ingressgateway # use istio default controller
@@ -13,7 +13,7 @@ spec:
       name: http
       protocol: HTTP
     hosts:
-    - istio-rollout.team-liran.ml
+    - bubble-app.team-liran.ml
     tls:
       httpsRedirect: true # sends 301 redirect for http requests
   - port:
@@ -21,4 +21,4 @@ spec:
       name: https-443
       protocol: HTTP
     hosts:
-    - istio-rollout.team-liran.ml
+    - bubble-app.team-liran.ml

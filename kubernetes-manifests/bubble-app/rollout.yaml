@@ -1,9 +1,9 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: istio-rollout
+  name: bubble-app
   labels:
-    app: istio-rollout
+    app: bubble-app
 spec:
   strategy:
     # which strategy to use (blueGreen, canary..)
@@ -15,7 +15,7 @@ spec:
         startingStep: 2 # delay starting analysis run until setWeight: 40%
         args:
         - name: service-name
-          value: istio-rollout-canary.default.svc.cluster.local
+          value: bubble-app-canary.default.svc.cluster.local
       steps:
     # we send at the beginning of the new release 20% of the traffic to the canary release.
     # To do that, Argo CD will update the weight of Istio's VirtualService.
@@ -30,28 +30,28 @@ spec:
           duration: "2m"
     # At the end if no more step is present, 
     # Argo will send 100% of the traffic to the canary release.
-      canaryService: istio-rollout-canary # represents our canary clusterIP service.
-      stableService: istio-rollout-stable # represents our main clusterIP service.
+      canaryService: bubble-app-canary # represents our canary clusterIP service.
+      stableService: bubble-app-stable # represents our main clusterIP service.
       trafficRouting:
         istio:
            virtualService: 
-            name: istio-rollout-vs
+            name: bubble-app-vs
             routes:
-            - istio-rollout-rt # At least one route is required
+            - bubble-app-rt # At least one route is required
   replicas: 4
   revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: istio-rollout
+      app: bubble-app
       version: blue
   template:
     metadata:
       labels:
-        app: istio-rollout
+        app: bubble-app
         version: blue
     spec:
       containers:
-      - name: istio-rollout
+      - name: bubble-app
         image: argoproj/rollouts-demo:blue # blue (stable) / orange (new canary version) / bad-green  (broken image)
         imagePullPolicy: Always
         ports:
