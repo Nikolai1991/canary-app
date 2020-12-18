@@ -1,4 +1,6 @@
-We will install the Bookinfo application inside its own namespace and allow Istio to automatically inject the Sidecar Proxy.
+## Architecture of the Bookinfo application
+
+<img width="776" alt="istio_bookinfo_architecture" src="https://user-images.githubusercontent.com/31888672/102626434-72d95680-414f-11eb-863c-9098b7ee6caf.png">
 
 <pre><code>
 
@@ -28,13 +30,13 @@ You will see that the service points via round robin to 3 pod versions
 
 </code></pre>
 
-Istio Feature:
+Istio Features:
 
 1. Create the default destination rules
 
 <pre><code>
 
-kubectl -n bookinfo apply -f destination-rule-all.yaml
+kubectl -n bookinfo apply -f istio-features/destination-rule-all.yaml
 
 # This will give us the ability to choose to which pod route the trafic on the service side
 
@@ -44,7 +46,7 @@ kubectl -n bookinfo apply -f destination-rule-all.yaml
 
 <pre><code>
 
-kubectl -n bookinfo apply -f virtual-service-all-v1.yaml
+kubectl -n bookinfo apply -f istio-features/virtual-service-all-v1.yaml
 
 </code></pre>
 
@@ -52,7 +54,7 @@ kubectl -n bookinfo apply -f virtual-service-all-v1.yaml
 
 <pre><code>
 
-kubectl -n bookinfo apply -f virtual-service-reviews-test-v2.yaml
+kubectl -n bookinfo apply -f istio-features/virtual-service-reviews-test-v2.yaml
 
 # To test:
 # Click Sign in from the top right corner of the page.
@@ -63,6 +65,6 @@ kubectl -n bookinfo apply -f virtual-service-reviews-test-v2.yaml
 
 <pre><code>
 
-kubectl -n bookinfo apply -f virtual-service-reviews-50-v3.yaml
+kubectl -n bookinfo apply -f istio-features/virtual-service-reviews-50-v3.yaml
 
 </code></pre>
