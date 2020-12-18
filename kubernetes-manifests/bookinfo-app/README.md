@@ -8,14 +8,12 @@ kubectl label namespace bookinfo istio-injection=enabled
 </code></pre>
 
 ### Deploy the application
-
 <pre><code>
 kubectl -n bookinfo apply -f bookinfo.yaml
 kubectl -n bookinfo get pod,svc
 </code></pre>
 
 ### Create an Istio Gateway
-
 <pre><code>
 kubectl -n bookinfo apply -f gateway.yaml
 
@@ -23,10 +21,10 @@ kubectl -n bookinfo apply -f gateway.yaml
 You will see that the service points via round robin to 3 pod versions
 </code></pre>
 
-#### Istio Features:
+
+## Istio Features:
 
 1. Create the default destination rules
-
 <pre><code>
 kubectl -n bookinfo apply -f istio-features/destination-rule-all.yaml
 
@@ -34,13 +32,11 @@ kubectl -n bookinfo apply -f istio-features/destination-rule-all.yaml
 </code></pre>
 
 2. Route traffic to one version of a service
-
 <pre><code>
 kubectl -n bookinfo apply -f istio-features/virtual-service-all-v1.yaml
 </code></pre>
 
 3. Route based on user identity
-
 <pre><code>
 kubectl -n bookinfo apply -f istio-features/virtual-service-reviews-test-v2.yaml
 
@@ -50,7 +46,6 @@ kubectl -n bookinfo apply -f istio-features/virtual-service-reviews-test-v2.yaml
 </code></pre>
 
 4. Traffic Shifting
-
 <pre><code>
 kubectl -n bookinfo apply -f istio-features/virtual-service-reviews-50-v3.yaml
 </code></pre>
