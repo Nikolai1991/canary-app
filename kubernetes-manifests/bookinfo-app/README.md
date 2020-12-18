@@ -2,6 +2,8 @@
 
 <img width="776" alt="istio_bookinfo_architecture" src="https://user-images.githubusercontent.com/31888672/102626434-72d95680-414f-11eb-863c-9098b7ee6caf.png">
 
+### Prerequisite:
+
 <pre><code>
 kubectl create namespace bookinfo
 kubectl label namespace bookinfo istio-injection=enabled
