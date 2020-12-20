@@ -44,3 +44,6 @@ spec:
       - name: {{ .Values.AppName }}
         image: {{ .Values.image }}
         imagePullPolicy: Always
+        ports:
+        - name: web
+          containerPort: 80
