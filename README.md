@@ -11,6 +11,7 @@ This repo will deploy the ArgoCD components and a definition of your app for Arg
 <pre><code>
 
 kubectl label namespace NAMESPACE istio-injection=enabled
+kubectl get namespace -L istio-injection
 
 </code></pre>
 
