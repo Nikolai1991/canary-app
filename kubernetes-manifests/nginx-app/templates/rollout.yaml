@@ -6,8 +6,7 @@ metadata:
   labels:
   labels:
     app: {{ .Values.AppName }}
-    version: v1
-    
+    # version: v1
 spec:
   strategy:
     canary:
@@ -42,7 +41,7 @@ spec:
     metadata:
       labels:
         app: {{ .Values.AppName }}
-        version: v1
+        # version: v1
     spec:
       containers:
       - name: {{ .Values.AppName }}

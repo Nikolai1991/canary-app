@@ -15,9 +15,9 @@ spec:
       route:
         - destination:
             host: {{ .Values.CanaryServiceName }}
-            subset: v1
+            # subset: v1
           weight: 100
         - destination:
             host: {{ .Values.StableServiceName }}
-            subset: v1
+            # subset: v1
           weight: 0
