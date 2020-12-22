@@ -12,3 +12,4 @@ Replicas: 4
 image: 744725459063.dkr.ecr.us-east-1.amazonaws.com/github-action-nginx:c8f6b7d
 DomainName: prod-webapp.team-liran.ml
 GatewayName: webapp-gateway
+PodVersion: v1
