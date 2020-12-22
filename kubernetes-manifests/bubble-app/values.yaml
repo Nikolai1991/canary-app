@@ -12,4 +12,4 @@ Replicas: 4
 image: argoproj/rollouts-demo:orange # blue (stable) / orange (new canary version) / bad-green  (broken image)
 DomainName: bubble-app.team-liran.ml
 GatewayName: bubble-app-gateway
-PodVersion: v2
+PodVersion: v5
