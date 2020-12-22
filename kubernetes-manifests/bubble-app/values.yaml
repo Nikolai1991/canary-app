@@ -1,0 +1,15 @@
+AppName: bubble-app
+Namespace: bubble-app
+CanaryServiceName: bubble-app-canary
+StableServiceName: bubble-app-stable
+FirstWeight: 20
+FirstDuration: 1m
+SecondWeight: 50
+SecondDuration: 2m
+VirtualService: bubble-app-vs
+RouteName: bubble-app-rt
+Replicas: 4
+image: argoproj/rollouts-demo:orange # blue (stable) / orange (new canary version) / bad-green  (broken image)
+DomainName: bubble-app.team-liran.ml
+GatewayName: bubble-app-gateway
+PodVersion: v1
