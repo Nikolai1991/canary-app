@@ -5,7 +5,7 @@ metadata:
   namespace: {{ .Values.Namespace }}
   labels:
     app: {{ .Values.AppName }}
-    version: {{ .Values.PodVersion }}
+    version: {{ .Values.AppVersion }}
 spec:
   strategy:
     canary:
@@ -40,7 +40,7 @@ spec:
     metadata:
       labels:
         app: {{ .Values.AppName }}
-        version: {{ .Values.PodVersion }}
+        version: {{ .Values.AppVersion }}
     spec:
       containers:
       - name: {{ .Values.AppName }}
