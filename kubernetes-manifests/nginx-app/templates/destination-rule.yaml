@@ -5,11 +5,11 @@ metadata:
   namespace: {{ .Values.Namespace }}
 spec:
   host: {{ .Values.CanaryServiceName }}
----
-apiVersion: networking.istio.io/v1alpha3
-kind: DestinationRule
-metadata:
-  name: {{ .Values.AppName }}
-  namespace: {{ .Values.Namespace }}
-spec:
-  host: {{ .Values.StableServiceName }}
+# ---
+# apiVersion: networking.istio.io/v1alpha3
+# kind: DestinationRule
+# metadata:
+#   name: {{ .Values.AppName }}
+#   namespace: {{ .Values.Namespace }}
+# spec:
+#   host: {{ .Values.StableServiceName }}

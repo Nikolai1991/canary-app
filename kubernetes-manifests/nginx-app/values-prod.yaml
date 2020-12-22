@@ -6,7 +6,7 @@ FirstWeight: 20
 FirstDuration: 1m
 SecondWeight: 50
 SecondDuration: 2m
-DestinationRule: webapp-dr
+VirtualService: webapp-vs
 RouteName: webapp-rt
 Replicas: 4
 image: 744725459063.dkr.ecr.us-east-1.amazonaws.com/github-action-nginx:c8f6b7d

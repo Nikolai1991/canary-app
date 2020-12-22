@@ -13,13 +13,13 @@ spec:
   selector:
     app: {{ .Values.AppName }}
   type: ClusterIP
----
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: {{ .Values.CanaryServiceName }}
-  labels:
-    account: {{ .Values.CanaryServiceName }}
+# ---
+# apiVersion: v1
+# kind: ServiceAccount
+# metadata:
+#   name: {{ .Values.CanaryServiceName }}
+#   labels:
+#     account: {{ .Values.CanaryServiceName }}
 ---
 apiVersion: v1
 kind: Service

@@ -5,7 +5,7 @@ metadata:
   namespace: {{ .Values.Namespace }}
   labels:
     app: {{ .Values.AppName }}
-    # version: v2
+    version: v2
 spec:
   strategy:
     canary:
@@ -40,9 +40,9 @@ spec:
     metadata:
       labels:
         app: {{ .Values.AppName }}
-        # version: v2
+        version: v2
     spec:
-      serviceAccountName: {{ .Values.CanaryServiceName }}
+      # serviceAccountName: {{ .Values.CanaryServiceName }}
       containers:
       - name: {{ .Values.AppName }}
         image: {{ .Values.image }}
