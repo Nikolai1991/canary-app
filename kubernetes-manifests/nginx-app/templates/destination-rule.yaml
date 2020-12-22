@@ -1,23 +1,15 @@
 apiVersion: networking.istio.io/v1alpha3
-kind: VirtualService
+kind: DestinationRule
 metadata:
-  name: {{ .Values.VirtualService }}
+  name: {{ .Values.AppName }}
   namespace: {{ .Values.Namespace }}
-  labels:
-    app: {{ .Values.AppName }}
 spec:
-  hosts:
-  - {{ .Values.DomainName }}
-  gateways:
-  - {{ .Values.GatewayName }}
-  http:
-    - name: {{ .Values.RouteName }}
-      route:
-        - destination:
-            host: {{ .Values.CanaryServiceName }}
-            # subset: v1
-          weight: 100
-        - destination:
-            host: {{ .Values.StableServiceName }}
-            # subset: v1
-          weight: 0
+  host: {{ .Values.CanaryServiceName }}
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: {{ .Values.AppName }}
+  namespace: {{ .Values.Namespace }}
+spec:
+  host: {{ .Values.StableServiceName }}

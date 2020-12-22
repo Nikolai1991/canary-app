@@ -4,9 +4,8 @@ metadata:
   name: {{ .Values.AppName }}
   namespace: {{ .Values.Namespace }}
   labels:
-  labels:
     app: {{ .Values.AppName }}
-    # version: v1
+    # version: v2
 spec:
   strategy:
     canary:
@@ -41,10 +40,13 @@ spec:
     metadata:
       labels:
         app: {{ .Values.AppName }}
-        # version: v1
+        # version: v2
     spec:
+      serviceAccountName: {{ .Values.CanaryServiceName }}
       containers:
       - name: {{ .Values.AppName }}
         image: {{ .Values.image }}
         imagePullPolicy: Always
+        ports:
+        - containerPort: 80
 
