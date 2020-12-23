@@ -9,7 +9,7 @@ SecondDuration: 2m
 VirtualService: webapp-vs
 RouteName: webapp-rt
 Replicas: 4
-AppVersion: commit-GITHUB_SHA_SHORT
+image: commit-GITHUB_SHA_SHORT
 DomainName: dev-webapp.team-liran.ml
 GatewayName: webapp-gateway
 AppVersion: v1
