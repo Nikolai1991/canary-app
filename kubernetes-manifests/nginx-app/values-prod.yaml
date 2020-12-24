@@ -9,7 +9,7 @@ SecondDuration: 2m
 VirtualService: webapp-vs
 RouteName: webapp-rt
 Replicas: 4
-image: 744725459063.dkr.ecr.us-east-1.amazonaws.com/github-action-nginx:d74f884
+image: 744725459063.dkr.ecr.us-east-1.amazonaws.com/github-action-nginx:07675f5
 DomainName: prod-webapp.team-liran.ml
 GatewayName: webapp-gateway
-AppVersion: commit-d74f884
+AppVersion: commit-07675f5
