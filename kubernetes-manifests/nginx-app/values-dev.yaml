@@ -9,7 +9,7 @@ SecondDuration: 2m
 VirtualService: webapp-vs
 RouteName: webapp-rt
 Replicas: 4
-image: 
+image: $ECR_REPO
 DomainName: dev-webapp.team-liran.ml
 GatewayName: webapp-gateway
-AppVersion: 
+AppVersion: $TAG
