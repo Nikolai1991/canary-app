@@ -62,7 +62,7 @@ metadata:
   name: hpa-rollout-{{ .Values.AppName }}
 spec:
   maxReplicas: 10
-  minReplicas: 2
+  minReplicas: 4
   scaleTargetRef:
     apiVersion: argoproj.io/v1alpha1
     kind: Rollout
