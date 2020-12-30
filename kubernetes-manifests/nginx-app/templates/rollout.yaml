@@ -67,4 +67,4 @@ spec:
     apiVersion: argoproj.io/v1alpha1
     kind: Rollout
     name: {{ .Values.AppName }}
-  targetCPUUtilizationPercentage: 50
+  targetCPUUtilizationPercentage: 30
