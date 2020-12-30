@@ -48,4 +48,16 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 80
-
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: {{ .Values.AppName }}
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1beta1
+    kind: Deployment
+    name: {{ .Values.AppName }}
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 50
