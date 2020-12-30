@@ -52,12 +52,12 @@ spec:
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: {{ .Values.AppName }}
+  name: hpa-rollout-{{ .Values.AppName }}
 spec:
-  scaleTargetRef:
-    apiVersion: apps/v1beta1
-    kind: Deployment
-    name: {{ .Values.AppName }}
-  minReplicas: 1
   maxReplicas: 10
+  minReplicas: 2
+  scaleTargetRef:
+    apiVersion: argoproj.io/v1alpha1
+    kind: Rollout
+    name: {{ .Values.AppName }}
   targetCPUUtilizationPercentage: 50
